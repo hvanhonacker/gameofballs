@@ -4,6 +4,13 @@
   <h1><%= @game.player_1_name %> Vs. <%= @game.player_2_name %></h1>
 </header>
 
+
+<section>
+  <% (1..9).each do |ball_number| %>
+    <%= link_to ball_number, game_game_events_path(@game, ball_number: ball_number), method: :post, remote: true %>
+  <% end %>
+</section>
+
 <section>
   <ul id="events">
     <li>Début de la partie</li>
