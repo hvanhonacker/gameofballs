@@ -13,6 +13,7 @@ App.game = App.cable.subscriptions.create("GameChannel", {
 
     let event = document.createElement('li');
     event.innerHTML = data['event_text'];
+    event.classList.add('event');
     document.getElementById('events').appendChild(event);
   }
 });

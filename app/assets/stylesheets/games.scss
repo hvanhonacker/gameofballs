@@ -1,3 +1,32 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.game-header,
+.balls-selector,
+.live-feed {
+  margin-bottom: 1.5rem;
+}
+
+.events {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.event {
+  padding: 1rem;
+  border-top: .1rem #000 solid;
+  font-size: 1.1rem;
+}
+
+.ball {
+  height: 2rem;
+  width: 2rem;
+  line-height: 2rem;
+  background-color: #fff;
+  border: .1rem #000 solid;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}

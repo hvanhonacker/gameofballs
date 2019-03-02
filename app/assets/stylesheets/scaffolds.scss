@@ -11,6 +11,9 @@ p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 pre {
@@ -21,10 +24,7 @@ pre {
 
 a {
   color: #000;
-
-  &:visited {
-    color: #666;
-  }
+  text-decoration: none;
 
   &:hover {
     color: #fff;
