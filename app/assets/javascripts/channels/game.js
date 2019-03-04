@@ -10,10 +10,11 @@ App.game = App.cable.subscriptions.create("GameChannel", {
   received: function(data) {
     // Called when there's incoming data on the websocket for this channel
     console.log(data);
+    this.renderEvent(data);
+  },
 
-    let event = document.createElement('li');
-    event.innerHTML = data['event_text'];
-    event.classList.add('event');
-    document.getElementById('events').appendChild(event);
+  renderEvent: function(data) {
+    let str = '<li class=\'event\'>' + data['event_text'] + '</li>';
+    document.getElementById('events').innerHTML += str;
   }
 });
