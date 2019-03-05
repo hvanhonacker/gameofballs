@@ -1,5 +1,5 @@
 var subscribeToGameChannel = function(game_id) {
-  App['game' + game_id] = App.cable.subscriptions.create({ channel: 'GameChannel', game: game_id }, {
+  App['game' + game_id] = App['game' + game_id] || App.cable.subscriptions.create({ channel: 'GameChannel', game: game_id }, {
 
     connected: function() {
       // Called when the subscription is ready for use on the server
@@ -22,5 +22,8 @@ var subscribeToGameChannel = function(game_id) {
 }
 
 $(document).on('turbolinks:load', function() {
-  subscribeToGameChannel($('#game').data('game-id'));
+  let game_id = $('#game').data('game-id')
+  if(game_id != null) {
+    subscribeToGameChannel(game_id);
+  }
 });
