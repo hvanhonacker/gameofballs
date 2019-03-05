@@ -14,6 +14,6 @@ App.game = App.cable.subscriptions.create("GameChannel", {
   },
 
   renderEvent: function(data) {
-    $("#events").append('<li class=\'event\'>' + data['event_text'] + '</li>')
+    $("#events").append(data['content']);
   }
 });
