@@ -1,19 +1,26 @@
-App.game = App.cable.subscriptions.create("GameChannel", {
-  connected: function() {
-    // Called when the subscription is ready for use on the server
-  },
+var subscribeToGameChannel = function(game_id) {
+  App['game' + game_id] = App.cable.subscriptions.create({ channel: 'GameChannel', game: game_id }, {
 
-  disconnected: function() {
-    // Called when the subscription has been terminated by the server
-  },
+    connected: function() {
+      // Called when the subscription is ready for use on the server
+    },
 
-  received: function(data) {
-    // Called when there's incoming data on the websocket for this channel
-    console.log(data);
-    this.renderEvent(data);
-  },
+    disconnected: function() {
+      // Called when the subscription has been terminated by the server
+    },
 
-  renderEvent: function(data) {
-    $("#events").append(data['content']);
-  }
+    received: function(data) {
+      // Called when there's incoming data on the websocket for this channel
+      console.log(data);
+      this.renderEvent(data);
+    },
+
+    renderEvent: function(data) {
+      $("#events").append(data['content']);
+    }
+  });
+}
+
+$(document).on('turbolinks:load', function() {
+  subscribeToGameChannel($('#game').data('game-id'));
 });
