@@ -4,6 +4,7 @@
 
 .game-header,
 .balls-selector,
+.supporter-bar,
 .live-feed {
   margin-bottom: 1.5rem;
 }
@@ -15,8 +16,12 @@
 
 .event {
   padding: 1rem;
-  border-top: .1rem #000 solid;
+  border-bottom: .1rem #000 solid;
   font-size: 1.1rem;
+}
+
+.reaction {
+  font-size: 2rem;
 }
 
 .ball {
@@ -29,4 +34,8 @@
   display: inline-block;
   text-align: center;
   font-weight: bold;
+}
+
+.supporter-bar {
+  font-size: 2rem;
 }

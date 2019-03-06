@@ -1,23 +1,28 @@
-<span id="game" data-game-id="<%= @game.id %>"></span>
+<div class="game" data-game-id="<%= @game.id %>">
+  <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
+  <header class="game-header">
+    <h1><%= @game.player_1_name %> Vs. <%= @game.player_2_name %></h1>
+  </header>
 
-<header class="game-header">
-  <h1><%= @game.player_1_name %> Vs. <%= @game.player_2_name %></h1>
-</header>
+  <section class="balls-selector">
+    <% (1..9).each do |ball_number| %>
+      <%= link_to ball_number, game_game_events_path(@game, ball_number: ball_number), method: :post, remote: true, class: "ball ball--#{ball_number}" %>
+    <% end %>
+  </section>
 
-<section class="balls-selector">
-  <% (1..9).each do |ball_number| %>
-    <%= link_to ball_number, game_game_events_path(@game, ball_number: ball_number), method: :post, remote: true, class: "ball ball--#{ball_number}" %>
-  <% end %>
-</section>
+  <section class="supporter-bar">
+    <a href="#" class="reactor">👏</a>
+    <a href="#" class="reactor">🤭</a>
+  </section>
 
-<section class="live-feed">
-  <ul id="events" class="events">
-    <li class="event">Début de la partie</li>
-    <li class="event"><%= @game.player_1_name %> casse ...</li>
-  </ul>
-</section>
+  <section class="live-feed">
+    <ul id="events" class="events">
+      <li class="event">Début de la partie</li>
+      <li class="event"><%= @game.player_1_name %> casse ...</li>
+    </ul>
+  </section>
+</div>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
