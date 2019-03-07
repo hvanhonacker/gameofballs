@@ -1,12 +1,16 @@
 <div class="game" data-game-id="<%= @game.id %>">
   <p id="notice"><%= notice %></p>
 
-  <header class="game-header">
-    <h1><%= @game.player_1_name %> Vs. <%= @game.player_2_name %></h1>
-  </header>
+  <section class="cur-player-selector">
+    <%= radio_button_tag :current_player, @game.player_1_name, false, id: :player_1, class: "cur-player-selector__input" %>
+    <%= label_tag :player_1, @game.player_1_name, class: "cur-player-selector__label" %>
+    <div class="cur-player-selector__vs">Vs.</div>
+    <%= radio_button_tag :current_player, @game.player_2_name, false, id: :player_2, class: "cur-player-selector__input" %>
+    <%= label_tag :player_2, @game.player_2_name, class: "cur-player-selector__label" %>
+  </section>
 
   <section class="balls-selector">
-    <% (1..9).each do |ball_number| %>
+    <% (1..15).each do |ball_number| %>
       <%= link_to ball_number, game_game_events_path(@game, ball_number: ball_number), method: :post, remote: true, class: "ball ball--#{ball_number}" %>
     <% end %>
   </section>

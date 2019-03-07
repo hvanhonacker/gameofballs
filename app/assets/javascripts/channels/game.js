@@ -37,11 +37,18 @@ var initSupporterBar = function(channel) {
   });
 }
 
+var initBallSelector = function() {
+  $('.ball').on('click', function() {
+    $(this).hide();
+  });
+}
+
 $(document).on('turbolinks:load', function() {
   let game_id = $('.game').data('game-id')
 
   if (game_id != null) {
     const gameChannel = subscribeToGameChannel(game_id);
     initSupporterBar(gameChannel);
+    initBallSelector();
   }
 });
