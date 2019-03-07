@@ -12,16 +12,22 @@
 .events {
   display: flex;
   flex-direction: column-reverse;
+
+  & > li {
+    padding: .8rem;
+    font-size: 1.1rem;
+
+    border-left: .3rem #000 solid;
+  }
 }
 
 .event {
-  padding: 1rem;
-  border-bottom: .1rem #000 solid;
-  font-size: 1.1rem;
-}
+  &--with-separator {
+    border-left: .3rem #000 solid;
 
-.reaction {
-  font-size: 2rem;
+    background-color: #ffffed;
+    margin-bottom: .85rem;
+  }
 }
 
 .ball {
@@ -70,6 +76,6 @@
   }
 
   &__input:checked + &__label {
-    background-color: #ffd6bb;
+    background-color: #ffffed;
   }
 }

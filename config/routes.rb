@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :games do
-    resources :game_events, only: :create
-  end
+  resources :games
 
   root to: "games#index"
 end
