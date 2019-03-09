@@ -19,7 +19,11 @@ var gameChannelFor = function(game_id) {
       },
 
       renderGameEvent: function(data) {
-        $('.game[data-game-id="' + game_id +'"] #events').append(data['content']);
+        if(data['event_type'] == "reaction") {
+          $('.game[data-game-id="' + game_id +'"] .event-reactions').last().append(data['content']);
+        } else {
+          $('.game[data-game-id="' + game_id +'"] #events').append(data['content']);
+        }
       }
     });
 
@@ -39,7 +43,6 @@ var initBallSelector = function(channel) {
   $('.ball').on('click', function(e) {
     e.preventDefault();
     channel.perform('ball_in_the_pocket', { ball_number: $(this).text() });
-    $(this).hide();
   });
 }
 
