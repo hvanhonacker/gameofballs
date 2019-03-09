@@ -28,5 +28,6 @@ class GameChannel < ApplicationCable::Channel
 
   def new_turn(data)
     ActionCable.server.broadcast "game_channel:#{@game.id}", event_type: :new_turn, content: "<li class='event--with-separator'>#{data["player"]} joue</li>"
+    ActionCable.server.broadcast "game_channel:#{@game.id}", event_type: :new_rule, content: "<li>#{Game.random_rule}</li>"
   end
 end
