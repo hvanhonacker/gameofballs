@@ -1,10 +1,10 @@
 var gameChannelFor = function(game_id) {
-  let game_chanel = 'game_' + game_id
+  var game_channel = 'game_' + game_id
 
-  if (App[game_chanel] != null) {
-    return App[game_chanel];
+  if (App[game_channel] != null) {
+    return App[game_channel];
   } else {
-    App[game_chanel] = App.cable.subscriptions.create({ channel: 'GameChannel', game: game_id }, {
+    App[game_channel] = App.cable.subscriptions.create({ channel: 'GameChannel', game: game_id }, {
       connected: function() {
         // Called when the subscription is ready for use on the server
       },
@@ -23,7 +23,7 @@ var gameChannelFor = function(game_id) {
       }
     });
 
-    return App[game_chanel];
+    return App[game_channel];
   }
 }
 
@@ -54,7 +54,7 @@ var initPlayerSelector = function(channel) {
 }
 
 $(document).on('turbolinks:load', function() {
-  let game_id = $('.game').data('game-id')
+  var game_id = $('.game').data('game-id')
 
   if (game_id != null) {
     const channel = gameChannelFor(game_id);
