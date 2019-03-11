@@ -1,16 +1,10 @@
 <div class="game" data-game-id="<%= @game.id %>">
-  <section class="cur-player-selector">
-    <%= radio_button_tag :current_player, @game.player_1_name, false, id: :player_1, class: "cur-player-selector__input" %>
-    <%= label_tag :player_1, @game.player_1_name, class: "cur-player-selector__label" %>
-    <div class="cur-player-selector__vs">Vs.</div>
-    <%= radio_button_tag :current_player, @game.player_2_name, false, id: :player_2, class: "cur-player-selector__input" %>
-    <%= label_tag :player_2, @game.player_2_name, class: "cur-player-selector__label" %>
-  </section>
 
-  <section class="balls-selector">
-    <% (1..15).each do |ball_number| %>
-      <%= link_to ball_number, "#", class: "ball ball--#{ball_number}" %>
-    <% end %>
+  <div class= "qr">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<%= game_url(@game) %>">
+  </div>
+  <section class="live-feed">
+    <ul id="events" class="events"></ul>
   </section>
 
   <section class="supporter-bar">
@@ -30,8 +24,18 @@
     <a href="#" class="reactor">🍺</a>
   </section>
 
-  <section class="live-feed">
-    <ul id="events" class="events"></ul>
+  <section class="cur-player-selector">
+    <%= radio_button_tag :current_player, @game.player_1_name, false, id: :player_1, class: "cur-player-selector__input" %>
+    <%= label_tag :player_1, @game.player_1_name, class: "cur-player-selector__label" %>
+    <div class="cur-player-selector__vs">Vs.</div>
+    <%= radio_button_tag :current_player, @game.player_2_name, false, id: :player_2, class: "cur-player-selector__input" %>
+    <%= label_tag :player_2, @game.player_2_name, class: "cur-player-selector__label" %>
+  </section>
+
+  <section class="balls-selector">
+    <% (1..15).each do |ball_number| %>
+      <%= link_to ball_number, "#", class: "ball ball--#{ball_number}" %>
+    <% end %>
   </section>
 </div>
 

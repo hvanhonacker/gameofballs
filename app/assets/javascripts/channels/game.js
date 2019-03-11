@@ -24,6 +24,8 @@ var gameChannelFor = function(game_id) {
         } else {
           $('.game[data-game-id="' + game_id +'"] #events').append(data['content']);
         }
+
+        $('html, body').animate({scrollTop: $(document).height()});
       }
     });
 

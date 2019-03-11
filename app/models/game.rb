@@ -9,10 +9,11 @@ class Game < ApplicationRecord
       "Jon: Second souffle, jouez deux fois de suite",
       "Hodor: Déplacez une de vos boule a côté d'une boule adverse",
       "Tyrion: Ivresse - vous jouez avec votre mauvaise main",
-      "Arya: Camouflage - Vous pouvez toucher/rentrer les boules adverses sans pénalités",
+      "Arya: Camouflage - Vous pouvez toucher les boules adverses sans pénalités",
       "Theon: Jouez sans queue",
-      "Le Roi White Walker: une boule rentrée revient dans le jeu dans la couleur opposée",
-      "Sansa : Changez de camps !"
+      "White Walker: une boule rentrée revient dans le jeu dans la couleur opposée",
+      "Sansa : Changez la couleur d'une boule de votre adversaire",
+      "Varys : Echangez la place de deux boules"
     ].sample
   end
 end

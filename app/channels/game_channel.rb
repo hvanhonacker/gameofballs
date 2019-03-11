@@ -22,7 +22,7 @@ class GameChannel < ApplicationCable::Channel
   end
 
   def ball_in_the_pocket(data)
-    rendered_game_event = ApplicationController.renderer.render(partial: 'game_events/game_event', locals: { text: %{La boule #{data["ball_number"]} est rentrée} })
+    rendered_game_event = ApplicationController.renderer.render(partial: 'game_events/game_event', locals: { text: %{La boule <span class='ball ball--#{data["ball_number"]}'>#{data["ball_number"]}</span> est rentrée}.html_safe })
     ActionCable.server.broadcast "game_channel:#{@game.id}", event_type: :ball_in_the_pocket, content: rendered_game_event
   end
 

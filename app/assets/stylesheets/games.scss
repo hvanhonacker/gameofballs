@@ -11,7 +11,7 @@
 
 .events {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   & > li {
     padding: .8rem;
@@ -26,7 +26,7 @@
     border-left: .3rem #000 solid;
 
     background-color: #ffffed;
-    margin-bottom: .85rem;
+    margin-top: .85rem;
   }
 }
 
@@ -64,18 +64,27 @@
 
   &__vs,
   &__label {
-    margin-right: 1.5rem;
-    font-size: 2rem;
+    margin-right: .5rem;
   }
 
   &__label {
     display: block;
     cursor: pointer;
-    padding: 2.5rem;
+    padding: .5rem;
     border: .1rem #000 solid;
   }
+}
 
-  &__input:checked + &__label {
-    background-color: #ffffed;
-  }
+.event-reactions {
+  margin-top: .8rem;
+}
+
+.reaction {
+  font-size: 2rem;
+}
+
+.qr {
+  position: fixed;
+  top: 1rem;
+  right:1rem;
 }
