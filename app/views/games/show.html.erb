@@ -1,43 +1,45 @@
 <div class="game" data-game-id="<%= @game.id %>">
-
-  <div class= "qr">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<%= game_url(@game) %>">
-  </div>
-  <section class="live-feed">
-    <ul id="events" class="events"></ul>
-  </section>
-
-  <section class="supporter-bar">
-    <a href="#" class="reactor">👏</a>
-    <a href="#" class="reactor">🤭</a>
-    <a href="#" class="reactor">🔥</a>
-    <a href="#" class="reactor">😮</a>
-    <a href="#" class="reactor">👽</a>
-    <a href="#" class="reactor">💩</a>
-    <a href="#" class="reactor">🧠</a>
-    <a href="#" class="reactor">🥊</a>
-    <a href="#" class="reactor">🥃</a>
-    <a href="#" class="reactor">🎳</a>
-    <a href="#" class="reactor">🌝</a>
-    <a href="#" class="reactor">🐐</a>
-    <a href="#" class="reactor">😂</a>
-    <a href="#" class="reactor">🍺</a>
-  </section>
-
-  <section class="cur-player-selector">
-    <%= radio_button_tag :current_player, @game.player_1_name, false, id: :player_1, class: "cur-player-selector__input" %>
-    <%= label_tag :player_1, @game.player_1_name, class: "cur-player-selector__label" %>
-    <div class="cur-player-selector__vs">Vs.</div>
-    <%= radio_button_tag :current_player, @game.player_2_name, false, id: :player_2, class: "cur-player-selector__input" %>
-    <%= label_tag :player_2, @game.player_2_name, class: "cur-player-selector__label" %>
-  </section>
-
-  <section class="balls-selector">
-    <% (1..15).each do |ball_number| %>
-      <%= link_to ball_number, "#", class: "ball ball--#{ball_number}" %>
+  <header class="header">
+    <% if params[:scribe] %>
+      Vous êtes scribe (<%= link_to 'changer', game_path(@game) %>)
+    <% else %>
+      Vous êtes spectateur (<%= link_to 'changer', game_path(@game, scribe: true) %>)
     <% end %>
-  </section>
+    | <%= link_to 'accueil', games_path %>
+    <h1 class="lineup"><%= @game.player_1_name %> vs. <%= @game.player_2_name %></h1>
+  </header>
+
+  <ul id="events" class="events"></ul>
+
+  <% if params[:scribe] %>
+    <section class="bar bar--scribe">
+      <div class="player-selector">
+        Tour de : <%= link_to @game.player_1_name, "#", class: "player player--1" %> |
+        <%= link_to @game.player_2_name, "#", class: "player player--2" %>
+      </div>
+
+      <div class="balls-selector">
+        <% (["c"] + (1..15).to_a).each do |ball_number| %>
+          <%= link_to ball_number, "#", class: "ball ball--#{ball_number}" %>
+        <% end %>
+
+        | <%= link_to "0", "#", class: "ball ball--none" %>
+      </div>
+    </section>
+  <% else %>
+
+    <section class="bar bar--supporter">
+      <% ["👏","😂","🤭","🌝","😮","🔥","👽","💩","🧠","🥊","🎳","🐐","🍺"].each do |emoji| %>
+        <a href="#" class="reactor"><%= emoji %></a>
+      <% end %>
+    </section>
+  <% end %>
+
+  <div class="qr">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<%= game_url(@game) %>" class="qr-code">
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+
+
+

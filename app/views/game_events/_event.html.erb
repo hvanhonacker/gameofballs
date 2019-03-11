@@ -1,0 +1,11 @@
+<li class="event">
+  <div class="event__text">
+    <% if ball_number == "0" %>
+      <% sarcarsms = ["Zzzzz", "C'est pas payé", "C'est placé", "Bien évité"] %>
+      "<%= sarcarsms.sample %>" (<i>Aucune boule n'est rentrée</i>)
+    <% else %>
+      La boule <span class="ball ball--<%= ball_number %>"><%= ball_number %></span> est rentrée
+    <% end %>
+  </div>
+  <div class="reactions-container"></div>
+</li>

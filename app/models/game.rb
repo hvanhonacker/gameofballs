@@ -5,15 +5,15 @@ class Game < ApplicationRecord
   def self.random_rule
     [
       "Jamie: Jouez avec une main manquante",
-      "Cersei: Deux boules de la même couleur qui se touchent donnent naissance à une troisième boule",
-      "Jon: Second souffle, jouez deux fois de suite",
-      "Hodor: Déplacez une de vos boule a côté d'une boule adverse",
-      "Tyrion: Ivresse - vous jouez avec votre mauvaise main",
-      "Arya: Camouflage - Vous pouvez toucher les boules adverses sans pénalités",
-      "Theon: Jouez sans queue",
-      "White Walker: une boule rentrée revient dans le jeu dans la couleur opposée",
-      "Sansa : Changez la couleur d'une boule de votre adversaire",
-      "Varys : Echangez la place de deux boules"
+      "Cersei: Famille - Faire se toucher deux boules de couleurs opposées entraine une pénalité",
+      "Jon: Second souffle - Jouez deux fois de suite",
+      "Hodor: Bloqué - Rentrer une boule entraine une pénalité",
+      "Tyrion: Ivresse - Vous jouez avec votre mauvaise main",
+      "Arya: Camouflage - Vous pouvez toucher les boules adverses en premier sans pénalités",
+      "Theon: Couic - Jouez sans queue",
+      "White Walker : Undead - chaque boule adverse rentrée revient sur la table dans votre couleur",
+      "Sansa : Changement de camp - Touchez une boule adverse en premier",
+      "Varys : Manipulation - Intervertissez la place de deux boules"
     ].sample
   end
 end

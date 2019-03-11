@@ -2,34 +2,72 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.cur-player-selector,
-.balls-selector,
-.supporter-bar,
+
 .live-feed {
   margin-bottom: 1.5rem;
 }
 
+.header {
+  height: 80px;
+}
+
+.bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffed;
+  line-height: 2rem;
+  padding: .25rem;
+
+  &--supporter {
+    font-size: 2.5rem;
+  }
+
+  &--scribe {
+    // background-color: #ffffed;
+  }
+}
+
 .events {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+}
 
-  & > li {
-    padding: .8rem;
-    font-size: 1.1rem;
+.turn {
+  padding: .8rem;
+  font-size: 1.1rem;
+  border-left: .3rem #000 solid;
+  margin-bottom: .5rem;
 
-    border-left: .3rem #000 solid;
+  &__player {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
 }
 
 .event {
-  &--with-separator {
-    border-left: .3rem #000 solid;
-
-    background-color: #ffffed;
-    margin-top: .85rem;
-  }
 }
 
+.rule-container {
+  background-color: #ffffed;
+  padding: .5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+}
+
+.reactions-container {
+  margin-top: .8rem;
+  font-size: 2rem;
+}
+
+.player {
+  background-color: #fff;
+  border: .1rem #000 solid;
+  border-radius: 10%;
+  padding: .25rem;
+}
 .ball {
   height: 2rem;
   width: 2rem;
@@ -42,48 +80,7 @@
   font-weight: bold;
 }
 
-.supporter-bar {
-  font-size: 2rem;
-}
-
-.game {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.cur-player-selector {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  &__input {
-    visibility: hidden;
-    position: absolute;
-  }
-
-  &__vs,
-  &__label {
-    margin-right: .5rem;
-  }
-
-  &__label {
-    display: block;
-    cursor: pointer;
-    padding: .5rem;
-    border: .1rem #000 solid;
-  }
-}
-
-.event-reactions {
-  margin-top: .8rem;
-}
-
-.reaction {
-  font-size: 2rem;
-}
-
-.qr {
+.qr-code {
   position: fixed;
   top: 1rem;
   right:1rem;

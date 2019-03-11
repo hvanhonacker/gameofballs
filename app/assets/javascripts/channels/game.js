@@ -14,18 +14,17 @@ var gameChannelFor = function(game_id) {
       },
 
       received: function(data) {
-        // Called when there's incoming data on the websocket for this channel
-        this.renderGameEvent(data);
-      },
-
-      renderGameEvent: function(data) {
-        if(data['event_type'] == "reaction") {
-          $('.game[data-game-id="' + game_id +'"] .event-reactions').last().append(data['content']);
-        } else {
-          $('.game[data-game-id="' + game_id +'"] #events').append(data['content']);
+        switch (data['event_type']) {
+          case 'reaction':
+            $('.game[data-game-id="' + game_id +'"] .reactions-container').last().append(data['content']);
+            break;
+          case 'ball_in_the_pocket':
+            $('.game[data-game-id="' + game_id +'"] .events-container').last().append(data['content']);
+            break;
+          case 'new_turn':
+            $('.game[data-game-id="' + game_id +'"] #events').append(data['content']);
+            break;
         }
-
-        $('html, body').animate({scrollTop: $(document).height()});
       }
     });
 
@@ -49,12 +48,9 @@ var initBallSelector = function(channel) {
 }
 
 var initPlayerSelector = function(channel) {
-  $('input[name="current_player"]').on('change', function(e) {
-    var $checked = $('input[name="current_player"]').filter(function() {
-      return $(this).prop('checked');
-    });
-
-    channel.perform('new_turn', { player: $checked.val() });
+  $('.player').on('click', function(e) {
+    e.preventDefault();
+    channel.perform('new_turn', { player: $(this).text() });
   });
 }
 
