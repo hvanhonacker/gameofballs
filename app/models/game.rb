@@ -10,10 +10,11 @@ class Game < ApplicationRecord
       "Hodor : Bloqué - Rentrer une boule entraine une pénalité",
       "Tyrion : Ivresse - Vous jouez avec votre mauvaise main",
       "Arya : Camouflage - Vous pouvez toucher les boules adverses en premier sans pénalités",
-      "Theon : Couic - Jouez sans queue",
+      "Theon : Couic ! - Jouez sans bandes",
       "White Walker : Undead - chaque boule adverse rentrée revient sur la table dans votre couleur",
       "Sansa : Changement de camp - Touchez une boule adverse en premier",
       "Varys : Manipulation - Intervertissez la place de deux boules"
     ].sample
   end
 end
+
