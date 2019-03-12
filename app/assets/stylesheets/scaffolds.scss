@@ -1,16 +1,12 @@
 body {
   background-color: #fff;
   color: #333;
-  //margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 1rem;
-  //line-height: 18px;
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  //font-size: 13px;
-  //line-height: 18px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -25,11 +21,6 @@ pre {
 a {
   color: #000;
   text-decoration: none;
-
-  // &:hover {
-  //   color: #fff;
-  //   background-color: #000;
-  // }
 }
 
 div {
@@ -59,14 +50,12 @@ div {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    // font-size: 12px;
     margin: -7px -7px 0;
     background-color: #c00;
     color: #fff;
   }
 
   ul li {
-    // font-size: 12px;
     list-style: square;
   }
 }

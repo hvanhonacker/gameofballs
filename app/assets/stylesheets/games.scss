@@ -22,21 +22,28 @@
   opacity: .95;
   line-height: 2rem;
   padding: .5rem;
+  text-align: center;
 
   &--supporter {
-    font-size: 2.5rem;
-    line-height: 2.6rem;
+    line-height: 2rem;
+    font-size: 1.75rem;
+  }
+
+  @media all and (min-width: 599px) {
+    &--supporter {
+      line-height: 2.1rem;
+      font-size: 2rem;
+    }
   }
 
   &--scribe {
-    // background-color: #ffffed;
   }
 }
 
 .events {
   display: flex;
   flex-direction: column-reverse;
-  margin-bottom: 5rem;
+  margin-bottom: 10rem;
 }
 
 .turn {
